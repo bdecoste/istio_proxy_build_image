@@ -24,7 +24,7 @@ USER root
 COPY *.repo /etc/yum.repos.d/
 
 # Install required RPMs and ensure that the packages were installed
-RUN yum install -y --disablerepo=\* --enablerepo=rhel-7-server-optional-rpms --enablerepo=epel --enablerepo=rhel-7-server-rpms --enablerepo=rhel-server-rhscl-7-rpms wget golang git cmake3 devtoolset-4-gcc devtoolset-4-gcc-c++ devtoolset-4-libatomic-devel devtoolset-4-libstdc++-devel devtoolset-4-runtime \
+RUN yum install -y --disablerepo=\* --enablerepo=rhel-7-server-extras-rpms --enablerepo=rhel-7-server-optional-rpms --enablerepo=epel --enablerepo=rhel-7-server-rpms --enablerepo=rhel-server-rhscl-7-rpms docker wget golang git cmake3 devtoolset-4-gcc devtoolset-4-gcc-c++ devtoolset-4-libatomic-devel devtoolset-4-libstdc++-devel devtoolset-4-runtime \
     && yum clean all
 
 RUN yum groupinstall -y --disablerepo=\* --enablerepo=rhel-7-server-optional-rpms --enablerepo=epel --enablerepo=rhel-7-server-rpms --enablerepo=rhel-server-rhscl-7-rpms 'Development Tools' \
@@ -36,6 +36,8 @@ ADD start.sh /usr/local/bin/start.sh
 
 ADD bazel-0.9.0-installer-linux-x86_64.sh /usr/local
 RUN /usr/local/bazel-0.9.0-installer-linux-x86_64.sh
+
+RUN chkconfig docker on
 
 ENTRYPOINT /usr/local/bin/start.sh
 
