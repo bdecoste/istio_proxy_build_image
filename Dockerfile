@@ -37,8 +37,6 @@ ADD start.sh /usr/local/bin/start.sh
 ADD bazel-0.9.0-installer-linux-x86_64.sh /usr/local
 RUN /usr/local/bazel-0.9.0-installer-linux-x86_64.sh
 
-RUN chkconfig docker on
-
 ENTRYPOINT /usr/local/bin/start.sh
 
 
