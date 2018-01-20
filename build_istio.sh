@@ -14,4 +14,3 @@ function build_istio_istio(){
   make docker.prebuilt
 }
 
-

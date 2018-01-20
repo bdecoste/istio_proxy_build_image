@@ -50,6 +50,6 @@ ADD build_all.sh /usr/local/bin/build_all.sh
 ADD build_proxy.sh /usr/local/bin/build_proxy.sh
 ADD build_istio.sh /usr/local/bin/build_istio.sh
 
-ENTRYPOINT /usr/local/bin/build_proxy.sh
+ENTRYPOINT /usr/local/bin/build_all.sh
 
 
