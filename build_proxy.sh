@@ -8,8 +8,6 @@ function build_istio_proxy(){
 
   mkdir -p /root/project
   cp -rf /root/proxy/src /root/project/
-  mkdir -p /root/proxy/project
-  cp -rf /root/proxy/src /root/proxy/project/
 
   cd /root/proxy
   make cmake-x86 CMAKE_MAKE_OPT="-j 8"
