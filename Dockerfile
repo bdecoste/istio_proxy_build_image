@@ -43,10 +43,12 @@ RUN rpm -iv golang-src-1.9.2-1.el7.noarch.rpm golang-1.9.2-1.el7.x86_64.rpm gola
 
 #ADD bazel-0.9.0-installer-linux-x86_64.sh /usr/local/bazel-0.9.0-installer-linux-x86_64.sh
 
+
 ADD proxy /root/proxy
 ADD go /root/go
+ADD istio /root/istio
 
-#ADD .repo /root/.repo
+RUN mkdir -p /root/go/src/istio.io && mv /root/istio /root/go/src/istio.io/
 
 ADD CMakeLists.txt /root/CMakeLists.txt
 ADD Makefile /root/Makefile

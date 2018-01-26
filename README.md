@@ -4,7 +4,7 @@
 
 * git clone https://github.com/bdecoste/istio_proxy_build_image
 * cd istio_proxy_build_image
-* git pull --recurse-submodules
+* git submodule update --init --recursive
 * docker build .
 
 
