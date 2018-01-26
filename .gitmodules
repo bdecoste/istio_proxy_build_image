@@ -1,0 +1,8 @@
+[submodule "proxy"]
+	path = proxy
+	url = https://github.com/bdecoste/proxy
+        branch = rhel
+[submodule "istio"]
+	path = istio
+	url = https://github.com/bdecoste/istio
+        branch = rhel
