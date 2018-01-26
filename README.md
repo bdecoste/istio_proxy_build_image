@@ -2,8 +2,9 @@
 
 ## To build the builder image:
 
-* ./repo init -u http://github.com/costinm/istio-repo
-* repo sync -c --force-sync
+* git clone https://github.com/bdecoste/istio_proxy_build_image
+* cd istio_proxy_build_image
+* git pull --recurse-submodules
 * docker build .
 
 

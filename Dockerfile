@@ -46,7 +46,7 @@ RUN rpm -iv golang-src-1.9.2-1.el7.noarch.rpm golang-1.9.2-1.el7.x86_64.rpm gola
 ADD proxy /root/proxy
 ADD go /root/go
 
-ADD .repo /root/.repo
+#ADD .repo /root/.repo
 
 ADD CMakeLists.txt /root/CMakeLists.txt
 ADD Makefile /root/Makefile
