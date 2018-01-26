@@ -17,6 +17,6 @@ This will create:
 * gcr.io/istio-testing/envoy-debug:TB12
 * gcr.io/istio-testing/iptables:TB12
 * istio/proxy_debug:TB12
-* istio/proxy_init:Tb12
+* istio/proxy_init:TB12
 
 
