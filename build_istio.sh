@@ -11,6 +11,6 @@ function build_istio_istio(){
  
   cd $ISTIO/istio
   make 
-  make docker.prebuilt
+  TAG=TB12 make docker.prebuilt
 }
 

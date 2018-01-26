@@ -1,12 +1,21 @@
 # Istio Proxy Builder Image
 
-Download https://github.com/bazelbuild/bazel/releases/download/0.9.0/bazel-0.9.0-installer-linux-x86_64.sh before running docker build
+## To build the builder image:
 
-Build the builderImage using: docker build .
+* ./repo init -u http://github.com/costinm/istio-repo
+* repo sync -c --force-sync
+* docker build .
 
-To run the builder image run: docker run -it -v /var/run/docker.sock:/var/run/docker.sock builderImage:tag 
 
-This will create gcr.io/istio-testing/envoy-debug:tag
+## To run the builder image:
 
-To run this image: docker run -u istio-proxy envoy-debug:tag
+* docker run -it -v /var/run/docker.sock:/var/run/docker.sock builderImage:tag 
+
+This will create:
+
+* gcr.io/istio-testing/envoy-debug:TB12
+* gcr.io/istio-testing/iptables:TB12
+* istio/proxy_debug:TB12
+* istio/proxy_init:Tb12
+
 

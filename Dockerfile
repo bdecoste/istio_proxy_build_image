@@ -28,7 +28,7 @@ RUN yum install -y --disablerepo=\* --enablerepo=rhel-7-server-extras-rpms --ena
     && yum clean all
 
 RUN yum install -y --disablerepo=\* --enablerepo=rhel-7-server-optional-rpms --enablerepo=epel --enablerepo=rhel-7-server-rpms --enablerepo=rhel-server-rhscl-7-rpms \
-    git unzip make libtool patch \
+    zlib-devel git unzip make libtool patch \
     && yum clean all
 
 #RUN yum groupinstall -y --disablerepo=\* --enablerepo=rhel-7-server-optional-rpms --enablerepo=epel --enablerepo=rhel-7-server-rpms --enablerepo=rhel-server-rhscl-7-rpms 'Development Tools' \
@@ -41,15 +41,26 @@ RUN  wget http://download.eng.bos.redhat.com/brewroot/packages/golang/1.9.2/1.el
 RUN  wget http://download.eng.bos.redhat.com/brewroot/packages/golang/1.9.2/1.el7/x86_64/golang-bin-1.9.2-1.el7.x86_64.rpm
 RUN rpm -iv golang-src-1.9.2-1.el7.noarch.rpm golang-1.9.2-1.el7.x86_64.rpm golang-bin-1.9.2-1.el7.x86_64.rpm
 
-ADD bazel-0.9.0-installer-linux-x86_64.sh /usr/local/bazel-0.9.0-installer-linux-x86_64.sh
+#ADD bazel-0.9.0-installer-linux-x86_64.sh /usr/local/bazel-0.9.0-installer-linux-x86_64.sh
 
 ADD proxy /root/proxy
 ADD go /root/go
 
+ADD .repo /root/.repo
+
+ADD CMakeLists.txt /root/CMakeLists.txt
+ADD Makefile /root/Makefile
+ADD WORKSPACE /root/WORKSPACE
+ADD genfiles /root/genfiles
+ADD build /root/build
+ADD src /root/src
+
 ADD build_all.sh /usr/local/bin/build_all.sh
 ADD build_proxy.sh /usr/local/bin/build_proxy.sh
+ADD build_iptables.sh /usr/local/bin/build_iptables.sh
 ADD build_istio.sh /usr/local/bin/build_istio.sh
 
 ENTRYPOINT /usr/local/bin/build_all.sh
+
 
 
